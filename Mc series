@@ -1,0 +1,32 @@
+1.Find the Maclaurin series expansion of sin(x)+ cos(x) upto 3rd
+degree term. Calculate sin(10) + cos(10).
+
+import numpy as np
+from matplotlib import pyplot as plt
+from sympy import*
+x= Symbol('x')
+y=sin(x)+cos(x)
+format
+x0= 0
+dy= diff(y , x)
+d2y = diff(y ,x , 2)
+d3y = diff(y ,x , 3)
+yat = lambdify(x , y)
+dyat = lambdify(x , dy )
+d2yat = lambdify(x , d2y )
+d3yat = lambdify(x , d3y )
+y=yat(x0)+((x-x0))*dyat(x0)+((x-x0)**2/2)* d2yat(x0)+((x-x0)**3/6)*d3yat(x0)
+print ("Maclaurins series expansion:", simplify ( y ) )
+yat = lambdify(x , y)
+print ("Approximated value of sin(10)+cos(10)~%.3f" % yat(10*(pi/180 )))
+print("Exact value of sin(10)+cos(10)~%.3f" %(sin(10*(pi/180))+cos(10*(pi/180))))
+# Plotting the graph of sin(x)+cos(x):
+def f(x):
+ return np.sin(x)+np.cos(x)
+x = np.linspace(-10 , 10 )
+plt.plot (x , yat(x) , label ='approximated curve')
+plt.plot (x , f(x) , label ='actual curve')
+plt.ylim ([-3 , 3])
+plt.grid()
+plt .legend ()
+plt.show()
