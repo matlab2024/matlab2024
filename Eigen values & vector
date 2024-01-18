@@ -1,0 +1,17 @@
+1. Obtain the eigen values and eigen vectors for the given matrix:
+(
+𝟒 𝟑 𝟐
+𝟏 𝟒 𝟏
+𝟑 𝟏𝟎 𝟒
+)
+Program:
+import numpy as np
+I=np. array ([[4,3,2],[1,4,1],[3,10 ,4]])
+print ("\n Given matrix : \n", I)
+w,v = np. linalg . eig (I)
+print ("\n Eigen values : \n", w)
+print ("\n Eigen vectors : \n", v)
+## To display one eigen value and corresponding eigen vector
+for i in range(3):
+ print (" Eigen value :\n ", w[i])
+ print ("\n Corresponding Eigen vector :", v[:,i])
