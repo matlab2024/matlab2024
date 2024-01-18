@@ -1,0 +1,23 @@
+1.Examine the consistency of the following system of equations and
+solve if consistent:
+x + 2y − z = 1, 2x + y + 4z = 2, 3x + 3y + 4z = 1.
+
+Program:
+import numpy as np #Import necessary libraries
+# Defining matrix A-coefficient matrix
+A=np . matrix ([[1 ,2 ,-1],[2 ,1 , 4],[3 ,3 , 4]])
+# Defining matrix B-matrix of constants
+B=np . matrix ([[1],[2],[1]])
+# Concatenating matrix A and B: [A:B]
+AB=np . concatenate (( A , B ) , axis =1 )
+rA=np . linalg . matrix_rank ( A ) # Computing rank of matrix A
+rAB =np . linalg . matrix_rank ( AB ) # Computing rank of matrix AB
+n=A . shape [1]#Computing order of matrix Aif ( rA==rAB ):#Checking for consistency
+ if ( rA==n ):#Checking for unique solution
+ print ("The system has unique solution ")
+ print ( np . linalg . solve (A , B ) )
+ else :
+ print ("The system has infinitely many solutions ")
+else :
+ print ("The system of equations is inconsistent ")
+  
