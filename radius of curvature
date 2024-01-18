@@ -1,0 +1,12 @@
+#.r = 4(1 + cost) at t=π/2
+
+import sympy
+t= Symbol('t') # define t as symbol
+r= Symbol('r')# define r as symbol
+r=4*(1+cos(t))# consider the given curve
+r1= Derivative(r,t).doit()#find the first derivative of r w.r.t "t"
+r2= Derivative(r1,t).doit()#find the second derivative of r w.r.t"t"
+rho =((r**2+r1**2)**(1.5))/(r**2+2*r1**2-r*r2 );
+#Substitute r1 and r2 in formula
+rho1 = rho.subs(t,pi/2) #substitute t in rho
+print('The radius of curvature is %4.4f units '%rho1)
